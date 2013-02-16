@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<div ng-repeat='board in boards | filter:boardFilter' ng-show='board.hasCards || showEmpty'>
+<div ng-repeat='board in boards | filter:{ boardName: boardFilter }' ng-show='board.hasCards || showEmpty'>
   <h3><a href='{{ board.boardUrl }}' target='trello'>{{ board.boardName }}</a></h3>
 
   <div ng-repeat='card in board.doingCards' class='row card'>
