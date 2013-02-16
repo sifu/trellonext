@@ -1,1 +1,56 @@
 /* Will be compiled down to a single stylesheet with your sass files */
+
+a {
+    color: #333;
+}
+
+h3 {
+    margin-top: 30px;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.card {
+    margin-top: 20px;
+}
+
+.cardUrl {
+    white-space: nowrap;
+    color: #999;
+}
+
+.cardLabel {
+    display: block;
+    float: left;
+    height: 4px;
+    width: 48px;
+    background-color: gray;
+    margin-right: 2px;
+}
+
+.cardLabel.orange {
+    background-color: orange;
+}
+
+.cardLabel.green {
+    background-color: green;
+}
+
+.cardLabel.yellow {
+    background-color: yellow;
+}
+
+.cardLabel.red {
+    background-color: red;
+}
+
+.cardLabel.purple {
+    background-color: purple;
+}
+
+.cardLabel.blue {
+    background-color: blue;
+}
+

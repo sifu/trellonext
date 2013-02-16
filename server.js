@@ -1,20 +1,18 @@
 #!/usr/bin/env node
 
 var express = require( 'express' );
+var path = require( 'path' );
 var Trello = require( 'node-trello' );
 
 var key = 'afedf2d21b6aec66400a3c639c85d65a';
 var token = '26c6a3fc361dc1a61f35de8fd0bdb543074c8dded82e7046612d0bd0fe0d8ef4';
 var t = new Trello( key, token );
 
-
 var app = express( );
 app.set( 'view engine', 'jade' );
 app.set( 'views', __dirname + '/views' );
+app.use( '/app', express.static( path.join( __dirname, 'client', 'app' ) ) );
 
-/*
-TODO: get the "Doing" list items as well
-*/
 
 function boardsWithNextCards( t, cb ) {
   var result = [];
@@ -68,6 +66,12 @@ app.get( '/token', function( req, res ) {
   res.redirect( 'https://trello.com/1/connect?key=' + key + '&name=MyNextCards&response_type=token' );
 } );
 
+app.get( '/data', function( req, res ) {
+  boardsWithNextCards( t, function( err, boards ) {
+    res.json( boards );
+  } );
+} );
+
 app.get( '/', function( req, res ) {
 
   boardsWithNextCards( t, function( err, boards ) {
@@ -78,3 +82,4 @@ app.get( '/', function( req, res ) {
 
 app.listen( 3000 );
 console.info( 'http://127.0.0.1:3000/' );
+console.info( 'http://127.0.0.1:3000/app/' );

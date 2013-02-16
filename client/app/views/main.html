@@ -1,9 +1,39 @@
-<div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
+<div class='navbar'>
+  <div class='navbar-inner'>
+    <a class='brand' href='http://trello.com'>trello</a>
+    <form class='navbar-search pull-left'>
+      <input type='text' ng-model='boardFilter' class='input-medium search-query' autofocus='autofocus' />
+    </form>
+    <button class='btn btn-link' ng-click='showEmpty=true' ng-hide='showEmpty'>show empty</button>
+    <button class='btn btn-link' ng-click='showEmpty=false' ng-show='showEmpty'>hide empty</button>
+  </div>
+</div>
+
+<div ng-repeat='board in boards | filter:boardFilter' ng-show='board.hasCards || showEmpty'>
+  <h3><a href='{{ board.boardUrl }}' target='trello'>{{ board.boardName }}</a></h3>
+
+  <div ng-repeat='card in board.doingCards' class='row card'>
+    <div class='span4'>
+      <span class='cardLabel' ng-class='label.color' ng-repeat='label in card.labels'></span>
+      <div class='clearfix'>
+        <a href='{{ card.url }}' target='trello'><b>{{ card.name }}</b></a>
+      </div>
+    </div>
+    <div class='span8 cardUrl'>
+      {{ card.url }}
+    </div>
+  </div>
+
+  <div ng-repeat='card in board.nextCards' class='row card'>
+    <div class='span4'>
+      <span class='cardLabel' ng-class='label.color' ng-repeat='label in card.labels'></span>
+      <div class='clearfix'>
+        <a href='{{ card.url }}' target='trello'>{{ card.name }}</a>
+      </div>
+    </div>
+    <div class='span8 cardUrl'>
+      {{ card.url }}
+    </div>
+  </div>
+
 </div>
