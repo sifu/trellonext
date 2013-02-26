@@ -9,6 +9,10 @@
   </div>
 </div>
 
+<div ng-hide='authorized'>
+  <button ng-click='authorize( )' class='btn'>authorize</button>
+</div>
+
 <div ng-repeat='board in boards | filter:{ boardName: boardFilter }' ng-show='board.hasCards || showEmpty' class='board'>
   <h3><a href='{{ board.boardUrl }}' target='trello'>{{ board.boardName }}</a></h3>
 
