@@ -4,8 +4,14 @@
     <form class='navbar-search pull-left'>
       <input type='text' ng-model='boardFilter' class='input-medium search-query' autofocus='autofocus' />
     </form>
-    <button class='btn btn-link' ng-click='showEmpty=true' ng-hide='showEmpty'>show empty</button>
-    <button class='btn btn-link' ng-click='showEmpty=false' ng-show='showEmpty'>hide empty</button>
+    <ul class='nav'>
+      <li><a ng-click='refresh()'><i class='icon-refresh'></i></a></li>
+      <li class='divider-vertical'></li>
+      <li>
+        <button class='btn btn-link' ng-click='showEmpty=true' ng-hide='showEmpty'>show empty</button>
+        <button class='btn btn-link' ng-click='showEmpty=false' ng-show='showEmpty'>hide empty</button>
+      </li>
+    </ul>
   </div>
 </div>
 

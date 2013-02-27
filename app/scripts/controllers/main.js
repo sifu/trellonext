@@ -60,6 +60,10 @@ angular.module( 'clientApp' )
     } );
   };
 
+  $scope.refresh = function( ) {
+    onAuthorize( );
+  };
+
   $scope.authorize = function( ) {
     Trello.authorize( {
       type: 'popup',
