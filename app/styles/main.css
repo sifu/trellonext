@@ -59,3 +59,20 @@ h3 {
     background-color: blue;
 }
 
+.badge-item {
+    color: rgb( 138, 138, 138 );
+    background-color: #eee;
+    border: 1px solid #ddd;
+    margin-right: 4px;
+    padding-left: 2px;
+    border-radius: 4px;
+}
+
+.notification .date, .notification .type {
+    color: #999;
+}
+
+.notification .member {
+    font-weight: bold;
+}
+
