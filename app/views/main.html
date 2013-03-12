@@ -11,35 +11,12 @@
         <button class='btn btn-link' ng-click='showEmpty=true' ng-hide='showEmpty'>show empty</button>
         <button class='btn btn-link' ng-click='showEmpty=false' ng-show='showEmpty'>hide empty</button>
       </li>
-      <li class='divider-vertical'></li>
-      <li class='notifications'><a ng-click='showNotifications=!showNotifications'>{{ notifications.length }}</a></li>
     </ul>
   </div>
 </div>
 
 <div ng-hide='authorized'>
   <button ng-click='authorize( )' class='btn'>authorize</button>
-</div>
-
-<div class='well' ng-show='showNotifications'>
-  <div ng-repeat='notification in notifications' class='row notification'>
-    <div class='span1 date'>
-      {{ notification.date | date:'dd.MM.' }}
-    </div>
-    <div class='span1 member'>
-      @{{ notification.memberCreator.username }}
-    </div>
-    <div class='span2 board-name'>
-      {{ notification.data.board.name }}
-    </div>
-    <div class='span2 type'>
-      {{ notification.type }}
-    </div>
-    <div class='span5 card-name'>
-      {{ notification.data.card.name }}
-    </div>
-
-  </div>
 </div>
 
 <div ng-repeat='board in boards | filter:{ boardName: boardFilter }' ng-show='board.hasCards || showEmpty' class='board'>

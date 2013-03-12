@@ -4,9 +4,7 @@ angular.module( 'clientApp' )
 .controller( 'MainCtrl', function( $scope, $http ) {
 
   $scope.boardFilter = '';
-  $scope.showNotifications = false;
   $scope.boards = [];
-  $scope.notifications = [];
   $scope.authorized = false;
 
   var onAuthorize = function( ) {
@@ -59,9 +57,6 @@ angular.module( 'clientApp' )
           } );
         } );
       } );
-    } );
-    Trello.get( 'members/me/notifications', function( result ) {
-      $scope.notifications = result.filter( function( n ) { return n.unread } );
     } );
   };
 
