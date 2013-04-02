@@ -71,6 +71,12 @@ angular.module( 'clientApp' )
     } );
   };
 
+  $scope.deauthorize = function( ) {
+    Trello.deauthorize( );
+    $scope.authorized = false;
+    $scope.boards = [];
+  };
+
   Trello.authorize( {
     interactive: false,
     success: onAuthorize
